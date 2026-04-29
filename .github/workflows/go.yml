@@ -5,7 +5,7 @@ on:
     branches: [v3]
   pull_request:
     branches: [v3]
-  workflow-dispatch:
+  workflow_dispatch:
 
 jobs:
   build:
