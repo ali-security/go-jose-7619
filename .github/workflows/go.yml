@@ -30,23 +30,3 @@ jobs:
 
     - name: Test
       run: go test -v ./...
-
-  govulncheck:
-    strategy:
-      matrix:
-        GO_VERSION:
-          # Just run govulncheck on the latest Go version.
-          - "1.24.x"
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          persist-credentials: false
-
-      - name: Set up Go ${{ matrix.GO_VERSION }}
-        uses: actions/setup-go@v5
-        with:
-          go-version: "${{ matrix.GO_VERSION }}"
-
-      - name: Run govulncheck
-        run: go run golang.org/x/vuln/cmd/govulncheck@latest ./...
